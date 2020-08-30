@@ -17,7 +17,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    needs: [packages, genApi]
+    needs: [packages]
     env:
       CI: true
     steps:
@@ -30,7 +30,7 @@ jobs:
   typeCheck:
     name: Type Check
     runs-on: ubuntu-latest
-    needs: [packages, genApi]
+    needs: [packages]
     env:
       CI: true
     steps:
