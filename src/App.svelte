@@ -6,8 +6,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
 </svelte:head>
 
+<HeaderComponent />
 <main>
-	<HeaderComponent />
 </main>
 
 <style>

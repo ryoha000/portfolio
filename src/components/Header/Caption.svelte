@@ -6,6 +6,7 @@
   .container {
     padding: 8px;
     cursor: pointer;
+    transform: rotate(0.03deg);
   }
 </style>
 

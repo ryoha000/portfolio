@@ -3,11 +3,9 @@
 </script>
 
 <style>
-  .header {
-    width: 100%;
-  }
   .container {
     position: fixed;
+    z-index: 5;
     width: 100%;
     display: flex;
     padding: 1rem;
