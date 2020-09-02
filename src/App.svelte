@@ -1,5 +1,6 @@
 <script lang="ts">
 	import HeaderComponent from './components/Header/Header.svelte'
+	import Top from './components/Top/Top.svelte'
 </script>
 
 <svelte:head>
@@ -8,6 +9,7 @@
 
 <HeaderComponent />
 <main>
+	<Top />
 </main>
 
 <style>

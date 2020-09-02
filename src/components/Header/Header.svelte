@@ -5,7 +5,7 @@
 <style>
   .container {
     position: fixed;
-    z-index: 5;
+    z-index: 10;
     width: 100%;
     display: flex;
     padding: 1rem;
@@ -26,7 +26,7 @@
 <header class="header">
   <div class="container">
     <div class="logo">
-      <img src="/logo.png" alt="logo" />
+      <img src="/assets/logo.png" alt="logo" />
     </div>
     <Caption label="Top" />
     <Caption label="Charactors" />
