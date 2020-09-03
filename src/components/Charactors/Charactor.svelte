@@ -5,17 +5,6 @@ import { onMount } from 'svelte';
   import CharactorInformation from './CharactorInformation.svelte'
 
   export let data: CharactorData
-  let imgHeight: number
-  let img: HTMLImageElement
-
-  const setHeight = () => {
-    imgHeight = img.height - 1
-  }
-  onMount(() => {
-    setTimeout(() => {
-      setHeight()
-    }, 100);
-  }) 
 </script>
 
 <style>
@@ -49,18 +38,22 @@ import { onMount } from 'svelte';
   }
   img {
     width: 100%;
-    
+    background-position: 1px;
+    transform: rotate(0deg) !important;
   }
 </style>
 
-<svelte:window on:resize="{setHeight}" />
-
-<div class="container fadeInUp">
+<div class="container fadeIn">
   <div class="leftTop"></div>
   <div class="rightBottom"></div>
   <div class="charaImg">
-    <div style="background-color: rgba({data.selif.color.join(',')}); height: {imgHeight}px">
-      <img src="{data.src}" alt="{data.name.map(v => v.text).join('')}" bind:this="{img}" loading="eager" />
+    <div>
+      <img
+        style="background-color: rgba({data.selif.color.join(',')});"
+        src="{data.src}"
+        alt="{data.name.map(v => v.text).join('')}"
+        loading="eager"
+      />
     </div>
   </div>
   <CharactorInformation data="{data}" />

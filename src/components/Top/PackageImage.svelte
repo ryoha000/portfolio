@@ -19,11 +19,10 @@
 
 <style>
   .container {
-    background-color: #0000ff;
     width: 100%;
     max-width: 1000px;
   }
 </style>
 
-<svelte:window on:resize="{resize}" ></svelte:window>
+<svelte:window on:resize="{resize}"></svelte:window>
 <div class="container" bind:this="{divContainer}"></div>

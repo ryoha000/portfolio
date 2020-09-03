@@ -10,7 +10,5 @@
   }
 </style>
 
-<div>
-  <div class="whiteSpace" />
-  <PackageImage />
-</div>
+<div class="whiteSpace" />
+<PackageImage />

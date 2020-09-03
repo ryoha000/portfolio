@@ -1,6 +1,16 @@
 <script lang="ts">
 	import HeaderComponent from './components/Header/Header.svelte'
 	import Top from './components/Top/Top.svelte'
+	import Charactors from './components/Charactors/Charactors.svelte'
+
+	import scrollAnimation from './lib/scrollAnimation'
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		const { setup } = scrollAnimation()
+		setup()
+	})
+
 </script>
 
 <svelte:head>
@@ -9,14 +19,30 @@
 
 <HeaderComponent />
 <main>
-	<Top />
+	<div class="container">
+		<Top />
+		<Charactors />
+		<div class="a" />
+	</div>
 </main>
 
 <style>
 	main {
 		font-family: "M PLUS Rounded 1c",sans-serif;
-		transform: rotate(0.03deg);
 		width: 100%;
 		height: 100%;
+	}
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.center {
+		margin: auto;
+	}
+	.a {
+		background-color: blue;
+		height: 300vh;
 	}
 </style>

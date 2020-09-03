@@ -2,9 +2,16 @@ import ScrollReveal from 'scrollreveal'
 
 const scrollAnimation = () => {
   const setup = () => {
+    setFadeIn()
     setFadeInUp()
     setFadeInRightDelay1000()
     setVisibleInvisible()
+  }
+  const setFadeIn = () => {
+    ScrollReveal().reveal('.fadeIn', { 
+      duration: 2000,
+      reset: true
+    });
   }
   const setFadeInUp = () => {
     ScrollReveal().reveal('.fadeInUp', { 

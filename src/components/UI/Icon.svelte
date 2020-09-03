@@ -19,6 +19,7 @@
   viewBox="0 0 24 24"
   role="img"
   class="icon"
+  on:click
 >
   <path d="{path()}" fill="currentColor" />
 </svg>

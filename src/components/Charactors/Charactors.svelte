@@ -4,7 +4,13 @@
 </script>
 
 <style>
+  .charaContainer {
+    margin-bottom: 64px;
+  }
 </style>
+
 {#each charactorDatas as data }
-  <Charactor data={data} />
+  <div class="charaContainer">
+    <Charactor data={data} />
+  </div>
 {/each}
