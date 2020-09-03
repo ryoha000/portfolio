@@ -10,6 +10,7 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "M PLUS Rounded 1c",sans-serif;
+	overflow-x: hidden;
 }
 
 *,
@@ -66,4 +67,33 @@ button:not(:disabled):active {
 
 button:focus {
 	border-color: #666;
+}
+
+.charactorPop {
+	animation: charactor-pop 1s linear;
+}
+
+@keyframes charactor-pop {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	65% {
+		transform: translateY(-16px);
+	}
+	70% {
+		transform: translateY(-24px);
+	}
+	80% {
+		transform: translateY(0);
+	}
+	90% {
+		transform: translateY(-16px);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
