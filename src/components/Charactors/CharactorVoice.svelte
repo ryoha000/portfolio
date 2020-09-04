@@ -52,6 +52,10 @@
     cursor: pointer;
     margin-right: 16px;
   }
+  img {
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
 <!-- svelte-ignore a11y-media-has-caption -->
@@ -65,9 +69,8 @@
   style="{`width: ${$size + 24}px; height: ${$size + 22}px; border-radius: ${($size + 24) / 2}px;`}"
 >
   {#if isPlay}
-    <Icon name="paused" size="{$size}" />
+    <img src="/assets/love-letter.svg" alt="pause" />
   {:else}
-    <!-- <Icon name="headphones" size="{$size}" /> -->
-    <img src="/assets/love-letter.svg" alt="play" />
+    <img src="/assets/love-letter-closed.svg" alt="play" />
   {/if}
 </div>
