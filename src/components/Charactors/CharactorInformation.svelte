@@ -29,19 +29,26 @@
     color: red;
     margin-right: -8px;
   }
+  .voiceTitleContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .voiceTitleContainer :first-child {
+    margin-right: 3rem;
+  }
   .voiceContainer {
     display: flex;
     align-items: center;
     height: 64px;
-  }
-  .cv {
-    margin-left: 3rem;
   }
   .detail {
     margin-top: 8px;
   }
   h2 {
     margin: 8px 0;
+  }
+  p {
+    margin: 4px 0;
   }
 </style>
 
@@ -62,14 +69,18 @@
         {text}
       {/if}
     {/each}
-      </h2>
-  <div>Voice<span class="cv">cv: {data.cv}</span></div>
+  </h2>
+  <div class="voiceTitleContainer">
+    <div>Voice</div><div>cv: {data.cv}</div>
+  </div>
   <div class="voiceContainer">
     {#each data.voices as voice}
       <CharactorVoice src="{voice}" />
     {/each}
   </div>
   <div class="detail">
-    {data.detail}
+    {#each data.detail as row}
+      <p>{row}</p>
+    {/each}
   </div>
 </div>

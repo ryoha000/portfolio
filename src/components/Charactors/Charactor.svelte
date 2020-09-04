@@ -1,6 +1,5 @@
 <script lang="ts">
-import { onMount } from 'svelte';
-
+  import { onMount } from 'svelte';
   import type { CharactorData } from './charactorData'
   import CharactorInformation from './CharactorInformation.svelte'
 
@@ -13,28 +12,27 @@ import { onMount } from 'svelte';
     position: relative;
     padding: 24px;
   }
-  .leftTop {
+  .edge {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 64px;
     height: 64px;
-    border-top: red solid 4px;
-    border-left: red solid 4px;
     z-index: 2;
   }
+  .leftTop {
+    top: 0;
+    left: 0;
+    border-top: red solid 4px;
+    border-left: red solid 4px;
+  }
   .rightBottom {
-    position: absolute;
     right: 0;
     bottom: 0;
-    width: 64px;
-    height: 64px;
     border-bottom: red solid 4px;
     border-right: red solid 4px;
-    z-index: 2;
   }
   .charaImg {
     margin: auto;
+    min-width: 30%;
   }
   img {
     width: 100%;
@@ -44,17 +42,15 @@ import { onMount } from 'svelte';
 </style>
 
 <div class="container fadeIn">
-  <div class="leftTop"></div>
-  <div class="rightBottom"></div>
+  <div class="leftTop edge"></div>
+  <div class="rightBottom edge"></div>
   <div class="charaImg">
-    <div>
-      <img
-        style="background-color: rgba({data.selif.color.join(',')});"
-        src="{data.src}"
-        alt="{data.name.map(v => v.text).join('')}"
-        loading="eager"
-      />
-    </div>
+    <img
+      style="background-color: rgba({data.selif.color.join(',')});"
+      src="{data.src}"
+      alt="{data.name.map(v => v.text).join('')}"
+      loading="eager"
+    />
   </div>
   <CharactorInformation data="{data}" />
 </div>

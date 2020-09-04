@@ -19,7 +19,6 @@
     justify-content: center;
   }
   .charaContainer {
-    margin-bottom: 96px;
     max-width: 1000px;
   }
 </style>
@@ -31,12 +30,15 @@
 <h2 class="title">Charactor</h2>
 
 <div class="facesContainer">
-  {#each charactorDatas as data }
-    <CharactorFace faceSrc={data.faceSrc} />
+  {#each charactorDatas as data, i }
+    <CharactorFace faceSrc={data.faceSrc} index={i} />
   {/each}
 </div>
 
-{#each charactorDatas as data }
+{#each charactorDatas as data, i }
+  <div id="charactor{i}">
+    <WhiteSpace />
+  </div>
   <div class="charaContainer">
     <Charactor {data} />
   </div>
