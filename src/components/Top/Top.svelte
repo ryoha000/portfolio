@@ -1,14 +1,7 @@
 <script>
   import PackageImage from './PackageImage.svelte'
+  import WhiteSpace from '../UI/WhiteSpace.svelte'
 </script>
 
-<style>
-  .whiteSpace {
-    background-color: white;
-    height: 72px;
-    width: 100%;
-  }
-</style>
-
-<div class="whiteSpace" />
+<WhiteSpace />
 <PackageImage />
