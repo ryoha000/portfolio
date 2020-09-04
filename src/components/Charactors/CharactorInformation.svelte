@@ -8,18 +8,18 @@
 
 <style>
   .container {
-    padding: 16px;
-    font-size: 1.5rem;
-    user-select: none;
 		transform: rotate(0.03deg);
+    padding-left: 16px;
+    font-size: 1.3rem;
+    user-select: none;
   }
   .selifFirst {
     margin-right: -4px;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   .selif {
     margin: 8px 0;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .name {
     font-size: 2rem;

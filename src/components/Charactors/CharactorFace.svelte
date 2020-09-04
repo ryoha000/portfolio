@@ -35,7 +35,7 @@
   }
 </style>
 
-<div class="container">
+<div class="{`container fadeInDelay${index * 200}`}">
   <a class="img" style="{imgStyle}" use:scrollto={`#charactor${index}`}>
     <img
       src="{faceSrc}"

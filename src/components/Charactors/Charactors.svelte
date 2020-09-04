@@ -1,16 +1,12 @@
 <script lang="ts">
   import WhiteSpace from '../UI/WhiteSpace.svelte'
+  import HeaderLabel from '../UI/HeaderLabel.svelte'
   import CharactorFace from './CharactorFace.svelte'
   import Charactor from './Charactor.svelte'
   import { charactorDatas } from './charactorData'
 </script>
 
 <style>
-  .title {
-    transform: rotate(0.03deg);
-    font-size: 2.5rem;
-    user-select: none;
-  }
   .facesContainer {
     display: flex;
     flex-wrap: wrap;
@@ -23,11 +19,7 @@
   }
 </style>
 
-<div id="charactors">
-  <WhiteSpace />
-</div>
-
-<h2 class="title">Charactor</h2>
+<HeaderLabel label="Charactors" />
 
 <div class="facesContainer">
   {#each charactorDatas as data, i }
