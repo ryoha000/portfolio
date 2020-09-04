@@ -1,5 +1,18 @@
 <script lang="ts">
-	import Caption from './Caption.svelte'
+  import Caption from './Caption.svelte'
+  import { scrollto } from "svelte-scrollto";
+  
+  const anchors = [
+    'Top',
+    'Charactors',
+    'Story',
+    'Gallery',
+    'News',
+    'Spec'
+  ]
+  const getId = (label: string) => {
+    return label.toLowerCase()
+  }
 </script>
 
 <style>
@@ -24,15 +37,15 @@
 </style>
 
 <header class="header">
+  <!-- svelte-ignore a11y-missing-attribute -->
   <div class="container">
     <div class="logo">
       <img src="/assets/logo.png" alt="logo" />
     </div>
-    <Caption label="Top" />
-    <Caption label="Charactors" />
-    <Caption label="Story" />
-    <Caption label="Gallery" />
-    <Caption label="News" />
-    <Caption label="Spec" />
+    {#each anchors as anchor}
+      <a use:scrollto={`#${getId(anchor)}`}>
+        <Caption label="{anchor}" />
+      </a>
+    {/each}
   </div>
 </header>

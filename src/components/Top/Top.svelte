@@ -3,5 +3,7 @@
   import WhiteSpace from '../UI/WhiteSpace.svelte'
 </script>
 
-<WhiteSpace />
+<div id="top">
+  <WhiteSpace />
+</div>
 <PackageImage />
