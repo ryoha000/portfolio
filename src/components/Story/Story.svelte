@@ -81,9 +81,9 @@
   <div class="fadeInRight">「わたしは<span class="thirtyOne strong">サーティーワン！</span>」</div>
   <div class="fadeInRight">「兄さんと<span class="pink strong">同じ</span>ものがいいです。」</div>
   <div class="fadeInRight">もう夜だからと<span class="sister strong">妹たち</span>を置いてコンビニにアイスを買いに向かっていた主人公りょは。</div>
-  <div class="fadeInRight">そこに空から<span class="piropiro">謎の異音</span>が聞こえてくる。</div>
+  <div class="fadeInRight">そこに空から<span class="piropiro strong">謎の異音</span>が聞こえてくる。</div>
   <p></p>
-  <span class="fadeInRight piropiro">ピロピロピロピロピロピロ...</span>
+  <div class="fadeInRight"><span class="piropiro strong">ピロピロピロピロピロピロ...</span></div>
   <p></p>
   <div class="fadeInRight">空を見上げるとそこには<span class="silver strong">銀色</span>の空飛ぶ円盤が！！</div>
   <div class="fadeInRight">白衣を着た<span class="scarlet strong">紅色</span>の髪の美少女が、<span class="light strong">光</span>の中ふわりと降り立つ。</div>
