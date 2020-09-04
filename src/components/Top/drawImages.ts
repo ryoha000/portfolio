@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
-import { images, BASE_CANVAS_WIDTH, BASE_CANVAS_HEIGHT, BASE_LOGO_Y, logoDatas } from './imageData'
-import type { BasePIXIInformation, BaseImageInformation, RGBA, LogoInformation, AnimationContainer } from './imageData'
+import { images, BASE_CANVAS_WIDTH, BASE_CANVAS_HEIGHT, BASE_LOGO_Y, logoDatas } from './ImageData'
+import type { BasePIXIInformation, BaseImageInformation, RGBA, LogoInformation, AnimationContainer } from './ImageData'
 
 const drawImages = (divContainer: HTMLDivElement) => {
   const width = Math.floor(divContainer.clientWidth) - 1
@@ -25,12 +25,12 @@ const drawImages = (divContainer: HTMLDivElement) => {
   let isAllAnimationFinished = charactorContainers.map(_ => false)
   // アニメーションの追加
   app.ticker.add((d) => {
-    // if (isAllAnimationFinished.reduce((acc, cur) => acc && cur)) {
-    //   for (const chara of charactorContainers) {
-    //     chara.filter.uniforms.time += 0.01 * d
-    //   }
-    //   return
-    // }
+    if (isAllAnimationFinished.reduce((acc, cur) => acc && cur)) {
+      for (const chara of charactorContainers) {
+        chara.filter.uniforms.time += 0.01 * d
+      }
+      return
+    }
     // まず「りょは」ロゴをスライドイン
     if (ryohaContainer.container.x > ryohaContainer.destination.x) {
       ryohaContainer.container.x -= speed * 1.5
@@ -47,12 +47,13 @@ const drawImages = (divContainer: HTMLDivElement) => {
           isReachTop[i] = true
           if (chara.container.y < chara.destination.y + 12) {
             chara.container.y += speed / 4
+            chara.container.alpha = 1.0
           } else {
             if (chara.filter) {
               chara.container.filters = [chara.filter]
               chara.filter.uniforms.time += 0.01 * d
-              ryohaContainer.container.zIndex = 5
-              infinityContainer.container.zIndex = 5
+              ryohaContainer.container.zIndex = 10
+              infinityContainer.container.zIndex = 10
               isAllAnimationFinished[i] = true
             }
           }
@@ -152,11 +153,14 @@ const setupCharactorContainer = (
   scale: number,
 ): AnimationContainer[] => {
   const res: AnimationContainer[] = []
+  let i = 1
   for (const info of infos) {
     const filter = getFilter(info.position.flipColor)
     const container = getSquareContainer(info.image, scale)
     container.x = info.position.x * scale
-    container.y = (info.position.y + BASE_CANVAS_HEIGHT) * scale * 0.2
+    container.y = (info.position.y + BASE_CANVAS_HEIGHT) * scale * 0.35
+    container.zIndex = i
+    i += 1
     res.push({
       destination: {
         x: info.position.x * scale,
@@ -174,10 +178,10 @@ const setupLogos = (
   datas: Map<'ryoha' | 'infinity', LogoInformation>,
   scale: number,
 ): [AnimationContainer, AnimationContainer] => {
-  const ryohaLogo: LogoInformation = datas.get('ryoha')
+  const ryohaLogo = datas.get('ryoha')
   const ryohaContainer = getLogoContainer(ryohaLogo, scale)
 
-  const infinityLogo: LogoInformation = datas.get('infinity')
+  const infinityLogo = datas.get('infinity')
   const infinityContainer = getLogoContainer(infinityLogo, scale)
 
   const speed = (BASE_CANVAS_WIDTH * scale - ryohaLogo.destinationX) / 50

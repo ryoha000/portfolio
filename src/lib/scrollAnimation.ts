@@ -16,7 +16,7 @@ const scrollAnimation = () => {
     });
   }
   const setFadeInDelay = () => {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 15; i++) {
       ScrollReveal().reveal(`.fadeInDelay${i * 200}`, { 
         duration: 1000,
         delay: i * 200,
