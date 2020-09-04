@@ -8,6 +8,8 @@
     font-size: 1.5rem;
     max-width: 1000px;
     padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
   }
   .strong {
     font-size: 2rem;
@@ -60,6 +62,14 @@
     color: transparent;
     -webkit-background-clip: text;
   }
+  .last {
+    margin-top: 128px;
+    font-size: 2.5rem;
+    align-self: center;
+  }
+  .last .strong {
+    font-size: 4rem;
+  }
   p {
     margin: 32px 0;
   }
@@ -84,5 +94,5 @@
   <p></p>
   <div class="fadeInRight">「あぁ、<span class="red strong">燃料</span>が何か言ってなかったね。」</div>
   <div class="fadeInRight">「この宇宙船の燃料は<span class="scarlet strong">愛</span>だよ。」</div>
-  <div class="fadeInRight">「君、私と<span class="scarlet strong">愛</span>で<span class="comunication strong">交信</span>しよう。」</div>
+  <div class="fadeIn last">「君、私と<span class="scarlet strong">愛</span>で<span class="comunication strong">交信</span>しよう。」</div>
 </div>
