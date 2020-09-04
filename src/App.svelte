@@ -1,6 +1,7 @@
 <script lang="ts">
 	import HeaderComponent from './components/Header/Header.svelte'
 	import Top from './components/Top/Top.svelte'
+	import Story from './components/Story/Story.svelte'
 	import Charactors from './components/Charactors/Charactors.svelte'
 
 	import scrollAnimation from './lib/scrollAnimation'
@@ -21,6 +22,7 @@
 <main>
 	<div class="container">
 		<Top />
+		<Story />
 		<Charactors />
 		<div class="a" />
 	</div>
@@ -38,11 +40,7 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.center {
-		margin: auto;
-	}
 	.a {
-		background-color: blue;
 		height: 300vh;
 	}
 </style>
