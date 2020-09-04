@@ -1,6 +1,16 @@
 import * as PIXI from 'pixi.js';
-import { images, BASE_CANVAS_WIDTH, BASE_CANVAS_HEIGHT, BASE_LOGO_Y, logoDatas } from './ImageData'
-import type { BasePIXIInformation, BaseImageInformation, RGBA, LogoInformation, AnimationContainer } from './ImageData'
+import {
+  images,
+  BASE_CANVAS_WIDTH,
+  BASE_CANVAS_HEIGHT,
+  BASE_LOGO_Y,
+  logoDatas,
+  BasePIXIInformation,
+  BaseImageInformation,
+  RGBA,
+  LogoInformation,
+  AnimationContainer
+} from './ImageData'
 
 const drawImages = (divContainer: HTMLDivElement) => {
   const width = Math.floor(divContainer.clientWidth) - 1
