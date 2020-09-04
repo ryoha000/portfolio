@@ -4,8 +4,8 @@
   
   const anchors = [
     'Top',
-    'Charactors',
     'Story',
+    'Charactors',
     'Gallery',
     'News',
     'Spec'
@@ -39,9 +39,9 @@
 <header class="header">
   <!-- svelte-ignore a11y-missing-attribute -->
   <div class="container">
-    <div class="logo">
+    <a class="logo" use:scrollto={`#top`}>
       <img src="/assets/logo.png" alt="logo" />
-    </div>
+    </a>
     {#each anchors as anchor}
       <a use:scrollto={`#${getId(anchor)}`}>
         <Caption label="{anchor}" />
