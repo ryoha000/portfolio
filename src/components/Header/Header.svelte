@@ -18,7 +18,7 @@
 <style>
   .container {
     position: fixed;
-    z-index: 10;
+    z-index: 100;
     width: 100%;
     display: flex;
     padding: 1rem;
