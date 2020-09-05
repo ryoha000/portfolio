@@ -1,5 +1,6 @@
 <script lang="ts">
   import HeaderLabel from '../UI/HeaderLabel.svelte'
+  import GalleryDialog from './GalleryDialog.svelte'
   import type { Work } from './Works'
 
   export let work: Work
@@ -7,11 +8,16 @@
 
   let isHover: boolean = false
   let titleHeight: number
+  let isOpenDialog = false
   const hover = () => {
     isHover = true
   }
   const leave = () => {
     isHover = false
+  }
+  const toggleOpenDialog = () => {
+    console.log('toggle')
+    isOpenDialog = !isOpenDialog
   }
 </script>
 
@@ -66,7 +72,12 @@
   }
 </style>
 
-<div class="{`container fadeInDelay${index * 200}`}" on:mouseover="{hover}" on:mouseout="{leave}">
+<div
+  class="{`container fadeInDelay${index * 200}`}"
+  on:mouseover="{hover}"
+  on:mouseout="{leave}"
+  on:click="{toggleOpenDialog}"
+>
   <div class="imgContainer">
     <img src="{work.imgURLs[0]}" alt="{work.title}" />
   </div>
@@ -78,3 +89,7 @@
     </div>
   </div>
 </div>
+
+{#if isOpenDialog}
+  <GalleryDialog {work} on:close="{toggleOpenDialog}" />
+{/if}
