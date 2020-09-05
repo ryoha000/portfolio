@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
-  import { createEventDispatcher } from 'svelte';
+  import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+  import { fade } from 'svelte/transition';
   import HeaderLabel from '../UI/HeaderLabel.svelte'
   import GalleryDialogImage from './GalleryDialogImage.svelte'
   import GalleryDialogThumbnails from './GalleryDialogThumbnails.svelte'
@@ -78,7 +78,7 @@
   }
 </style>
 
-<div class="container fadeIn" on:click="{close}">
+<div class="container" on:click="{close}" transition:fade>
   <div class="dialogContainer" on:click="{stopClick}">
     <h2 class="text">{work.title}</h2>
     <h3 class="text">{work.subtitle}</h3>
