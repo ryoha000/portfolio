@@ -2,8 +2,23 @@
   import Icon from '../UI/Icon.svelte'
   import { createEventDispatcher } from 'svelte';
 
-  export let src: string
-  export let alt: string
+  export let srcs: string[]
+  export let imgIndex: number
+  let clientWidth: number
+  let clientHeight: number
+  $: containerHeightStyle = `
+    height: ${clientWidth / 2}px;
+  `
+  $: imgContainerStyle = `
+    height: ${clientHeight}px;
+  `
+  $: imgWrapperStyle = `
+    width: ${clientWidth}px;
+    height: ${clientHeight}px;
+  `
+  $: positionStyle = `
+    transform: translateX(-${clientWidth * imgIndex}px);
+  `
 
   const dispatch = createEventDispatcher();
   const move = (delta: number) => {
@@ -15,16 +30,23 @@
 
 <style>
   .container {
-    height: 100%;
-    width: 100%;
     max-height: 500px;
+    width: 100%;
     background-color: black;
-    display: flex;
     position: relative;
-    justify-content: center;
     user-select: none;
   }
-  .img {
+  .imgContainer {
+    display: flex;
+    overflow: hidden;
+  }
+  .imgWrapper {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 1s;
+  }
+  img {
     max-width: 100%;
     height: 100%;
     max-height: 500px;
@@ -45,16 +67,16 @@
   .right {
     right: 0;
   }
-  .toLeft {
-    transform: translateX(-100vw);
-  }
-  .toRight {
-    transform: translateX(100vw);
-  }
 </style>
 
-<div class="container">
-  <img {src} {alt} loading="eager" class="img" />
+<div class="container" style="{containerHeightStyle}" bind:clientHeight bind:clientWidth>
+  <div class="imgContainer" style="{imgContainerStyle}">
+    {#each srcs as src, i}
+      <div class="imgWrapper" style="{imgWrapperStyle + positionStyle}">
+        <img {src} alt="{`${i}`}" loading="eager" />
+      </div>
+    {/each}
+  </div>
   <div class="icon left" on:click="{() => move(-1)}">
     <Icon name="chevron-left" size="{32}" />
   </div>

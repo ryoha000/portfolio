@@ -85,7 +85,7 @@
   <div class="dialogContainer" on:click="{stopClick}">
     <h2 class="text">{work.title}</h2>
     <h3 class="text">{work.subtitle}</h3>
-    <GalleryDialogImage src="{work.imgURLs[imgIndex]}" alt="{`${work.title}${imgIndex}`}" on:move="{imageMove}" />
+    <GalleryDialogImage srcs="{work.imgURLs}" {imgIndex} on:move="{imageMove}" />
     <div class="thumbContainer">
       {#each work.imgURLs as src, i}
         <GalleryDialogThumbnail
