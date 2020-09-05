@@ -3,7 +3,7 @@
   import { createEventDispatcher } from 'svelte';
   import HeaderLabel from '../UI/HeaderLabel.svelte'
   import GalleryDialogImage from './GalleryDialogImage.svelte'
-  import GalleryDialogThumbnail from './GalleryDialogThumbnail.svelte'
+  import GalleryDialogThumbnails from './GalleryDialogThumbnails.svelte'
   import Icon from '../UI/Icon.svelte'
   import type { Work } from './Works'
 
@@ -38,6 +38,9 @@
       imgIndex = added
     }
   }
+  const select = (e: CustomEvent<{index: number}>) => {
+    imgIndex = e.detail.index
+  }
 </script>
 
 <style>
@@ -60,12 +63,6 @@
     padding: 24px 0;
     overflow: auto;
   }
-  .thumbContainer {
-    display: flex;
-    margin-bottom: 16px;
-    background-color: black;
-    height: 96px;
-  }
   .text {
     margin: 0 24px;
     transform: rotate(0.03deg);
@@ -86,16 +83,11 @@
     <h2 class="text">{work.title}</h2>
     <h3 class="text">{work.subtitle}</h3>
     <GalleryDialogImage srcs="{work.imgURLs}" {imgIndex} on:move="{imageMove}" />
-    <div class="thumbContainer">
-      {#each work.imgURLs as src, i}
-        <GalleryDialogThumbnail
-          {src}
-          alt="{`${work.title}${i}`}"
-          selected="{imgIndex === i}"
-          on:select="{() => { imgIndex = i }}"
-        />
-      {/each}
-    </div>
+    <GalleryDialogThumbnails
+      imgURLs="{work.imgURLs}"
+      {imgIndex}
+      on:select="{select}"
+    />
     {#each work.description as row}
       <div class="text">{row}</div>
     {/each}
