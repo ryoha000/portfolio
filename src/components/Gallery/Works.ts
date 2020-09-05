@@ -119,13 +119,13 @@ export const works: Work[] = [
     title: 'エロゲ中古価格アプリ',
     subtitle: '中古エロゲの価格.com',
     description: [
-      'エロゲの評価を見れ(批評空間様のデータをお借りしています)(https://erogamescape.dyndns.org/~ap2/ero/toukei_kaiseki/)、Sofmap, Amazon, 駿河屋での中古エロゲの通販価格を見れます。',
+      '批評空間様のエロゲの評価を見れ、Sofmap, Amazon, 駿河屋での中古エロゲの通販価格を見れます。',
       '個人プロジェクトです。',
       '現状公開していません。',
       '画像が荒いのは資料が残ってなくて発表の動画からキャプチャしてきたからです。',
       'はじめてのプロダクトです。',
       'スマホWebアプリケーションとして作っていて React Native + Expo + TypeScript(一部) で作成しています。',
-      'サーバーサイドは GCP(GCE) + Go (+ echo + sqlx) を使用しています',
+      'サーバーサイドは AWS(EC2) + Go (+ echo + sqlx) を使用しています',
     ],
     imgURLs: [
       '/assets/t01.png',
