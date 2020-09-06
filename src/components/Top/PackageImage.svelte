@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import DrawImages from './drawImages'
-  import type * as PIXI from 'pixi.js'
+  import type { Application } from 'pixi.js'
 
   let divContainer: HTMLDivElement
-  let app: PIXI.Application
+  let app: Application
   onMount(() => {
     app = DrawImages(divContainer)
   })
