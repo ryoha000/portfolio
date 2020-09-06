@@ -36,6 +36,7 @@ const drawImages = (divContainer: HTMLDivElement) => {
     transparent: true
   })
   divContainer.appendChild(app.view)
+  app.stop()
   
   const rootContainer = new Container()
   
@@ -87,7 +88,6 @@ const drawImages = (divContainer: HTMLDivElement) => {
   app.ticker = ticker
 
   ticker.start()
-
   return app
 }
 
