@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import { Container, Sprite, Texture, Application, Filter } from 'pixi.js';
 import {
   images,
   BASE_CANVAS_WIDTH,
@@ -18,14 +18,14 @@ const drawImages = (divContainer: HTMLDivElement) => {
   const speed = BASE_CANVAS_WIDTH * scale / 50
 
   // PIXIの準備
-  const app = new PIXI.Application({
+  const app = new Application({
     width: Math.min(width, BASE_CANVAS_WIDTH),
     height: BASE_CANVAS_HEIGHT * scale,
     transparent: true
   })
   divContainer.appendChild(app.view)
 
-  const rootContainer = new PIXI.Container()
+  const rootContainer = new Container()
 
   const charactorContainers = setupCharactorContainer(images, scale)
   const [ryohaContainer, infinityContainer] = setupLogos(logoDatas, scale)
@@ -110,7 +110,7 @@ const getFilter = (rgba: RGBA) => {
     }
   `
 
-  const filter = new PIXI.Filter(null, flag, {
+  const filter = new Filter(null, flag, {
     time: 0.0
   })
   return filter
@@ -134,12 +134,12 @@ const getSquareContainer = (imgInfo: BaseImageInformation, scale: number) => {
   img.width = imgInfo.width * scale
   img.height = imgInfo.height * scale
 
-  const sprite = new PIXI.Sprite(PIXI.Texture.from(img))
+  const sprite = new Sprite(Texture.from(img))
   sprite.anchor.set(0)
   sprite.x = 0
   sprite.y = 0
 
-  const container = new PIXI.Container()
+  const container = new Container()
 
   container.addChild(sprite)
 
@@ -147,10 +147,10 @@ const getSquareContainer = (imgInfo: BaseImageInformation, scale: number) => {
 }
 
 const getImageContainer = (src: string) => {
-  const container = new PIXI.Container()
+  const container = new Container()
   const img = new Image()
   img.src = src
-  const sprite = new PIXI.Sprite(PIXI.Texture.from(img))
+  const sprite = new Sprite(Texture.from(img))
   sprite.anchor.set(0)
   sprite.x = 0
   sprite.y = 0
@@ -219,7 +219,7 @@ const getLogoContainer = (info: LogoInformation, scale: number) => {
   return container
 }
 
-const addChildrenToContainer = (target: PIXI.Container, childrenContainer: PIXI.Container[]) => {
+const addChildrenToContainer = (target: Container, childrenContainer: Container[]) => {
   for (const child of childrenContainer) {
     target.addChild(child)
   }
