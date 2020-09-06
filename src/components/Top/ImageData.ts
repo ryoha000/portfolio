@@ -1,4 +1,4 @@
-import type * as PIXI from 'pixi.js'
+import type { Container, Filter } from 'pixi.js'
 
 export type RGBA = [number, number, number, number]
 
@@ -24,8 +24,8 @@ export interface AnimationContainer {
     x: number,
     y: number
   }
-  container: PIXI.Container
-  filter?: PIXI.Filter
+  container: Container
+  filter?: Filter
 }
 
 export const BASE_CANVAS_WIDTH = 1600
