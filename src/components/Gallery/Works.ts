@@ -2,6 +2,7 @@ export interface Work {
   title: string
   subtitle: string
   description: string[]
+  thumbnails: string[]
   imgURLs: string[]
   refLinks: RefLink[]
 }
@@ -21,9 +22,13 @@ export const works: Work[] = [
       'クライアントは svelte + rollup + TypeScript で作成しています。',
       'Azure Static Web App で自動デプロイされています。',
     ],
+    thumbnails: [
+      '/assets/portfolio01thumbnail.webp',
+      '/assets/portfolio02thumbnail.webp'
+    ],
     imgURLs: [
-      '/assets/portfolio01.png',
-      '/assets/portfolio02.png'
+      '/assets/portfolio01.webp',
+      '/assets/portfolio02.webp'
     ],
     refLinks: [
       {
@@ -41,9 +46,13 @@ export const works: Work[] = [
       'デスクトップWebアプリケーションとして作っていて electron + Vue2.0 + composition api + TypeScript で作成しています。',
       'サーバーサイドは GCP(GCE) + Rust (+ Actix web + Diesel) を使用しています。',
     ],
+    thumbnails: [
+      '/assets/es-client-header-thumbnail.webp',
+      '/assets/es-client-home-activity-thumbnail.webp'
+    ],
     imgURLs: [
-      '/assets/es-client-header.png',
-      '/assets/es-client-home-activity.png'
+      '/assets/es-client-header.webp',
+      '/assets/es-client-home-activity.webp'
     ],
     refLinks: [
       {
@@ -76,9 +85,13 @@ export const works: Work[] = [
       'クライアントは React + TypeScript で作成しています。',
       'サーバーサイドは GCP(Cloud Functions + Cloud SQL) + Python (+ Flask + SQLAlchemy) を使用しています',
     ],
+    thumbnails: [
+      '/assets/tool4pokemon8th01thumbnail.webp',
+      '/assets/tool4pokemon8th02thumbnail.webp'
+    ],
     imgURLs: [
-      '/assets/tool4pokemon8th01.png',
-      '/assets/tool4pokemon8th02.png'
+      '/assets/tool4pokemon8th01.webp',
+      '/assets/tool4pokemon8th02.webp'
     ],
     refLinks: [
       {
@@ -100,9 +113,13 @@ export const works: Work[] = [
       'クライアントは Vue + JavaScript で作成しています。',
       'サーバーサイドは VPS + Go (+ echo + GORM) を使用しています',
     ],
+    thumbnails: [
+      '/assets/booQ01thumbnail.webp',
+      '/assets/booQ02thumbnail.webp'
+    ],
     imgURLs: [
-      '/assets/booQ01.png',
-      '/assets/booQ02.png'
+      '/assets/booQ01.webp',
+      '/assets/booQ02.webp'
     ],
     refLinks: [
       {
@@ -127,10 +144,15 @@ export const works: Work[] = [
       'スマホWebアプリケーションとして作っていて React Native + Expo + TypeScript(一部) で作成しています。',
       'サーバーサイドは AWS(EC2) + Go (+ echo + sqlx) を使用しています',
     ],
+    thumbnails: [
+      '/assets/t01thumbnail.webp',
+      '/assets/t02thumbnail.webp',
+      '/assets/t03thumbnail.webp'
+    ],
     imgURLs: [
-      '/assets/t01.png',
-      '/assets/t02.png',
-      '/assets/t03.png'
+      '/assets/t01.webp',
+      '/assets/t02.webp',
+      '/assets/t03.webp'
     ],
     refLinks: [
       {
