@@ -49,7 +49,7 @@
       style="background-color: rgba({data.selif.color.join(',')});"
       src="{data.src}"
       alt="{data.name.map(v => v.text).join('')}"
-      loading="eager"
+      loading="lazy"
     />
   </div>
   <CharactorInformation data="{data}" />

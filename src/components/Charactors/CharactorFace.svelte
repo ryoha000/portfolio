@@ -44,6 +44,7 @@
       class="face"
       on:mouseover="{mouseOver}"
       on:mouseout="{mouseLeave}"
+      loading="lazy"
     />
   </a>
 </div>

@@ -69,8 +69,8 @@
   style="{`width: ${$size + 24}px; height: ${$size + 22}px; border-radius: ${($size + 24) / 2}px;`}"
 >
   {#if isPlay}
-    <img src="/assets/love-letter.svg" alt="pause" />
+    <img src="/assets/love-letter.svg" alt="pause" loading="lazy" />
   {:else}
-    <img src="/assets/love-letter-closed.svg" alt="play" />
+    <img src="/assets/love-letter-closed.svg" alt="play" loading="lazy" />
   {/if}
 </div>
