@@ -1,4 +1,5 @@
-import type { Container, Filter } from 'pixi.js'
+import type { Filter } from '@pixi/core'
+import type { Container } from '@pixi/display'
 
 export type RGBA = [number, number, number, number]
 
