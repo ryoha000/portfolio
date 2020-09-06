@@ -7,7 +7,6 @@
     'Story',
     'Charactors',
     'Gallery',
-    'News',
     'Spec'
   ]
   const getId = (label: string) => {
@@ -40,7 +39,7 @@
   <!-- svelte-ignore a11y-missing-attribute -->
   <div class="container">
     <a class="logo" use:scrollto={`#top`}>
-      <img src="/assets/logo.png" alt="logo" />
+      <img src="/assets/logo.png" alt="logo" loading="eager" />
     </a>
     {#each anchors as anchor}
       <a use:scrollto={`#${getId(anchor)}`}>

@@ -4,6 +4,7 @@
 	import Story from './components/Story/Story.svelte'
 	import Charactors from './components/Charactors/Charactors.svelte'
 	import Gallery from './components/Gallery/Gallery.svelte'
+	import Spec from './components/Spec/Spec.svelte'
 
 	import scrollAnimation from './lib/scrollAnimation'
 	import { onMount } from 'svelte';
@@ -26,6 +27,7 @@
 		<Story />
 		<Charactors />
 		<Gallery />
+		<Spec />
 		<div class="a" />
 	</div>
 </main>
