@@ -1,4 +1,9 @@
-import { Container, Sprite, Texture, Application, Filter } from 'pixi.js';
+import { Texture, Filter, Renderer, BatchRenderer } from '@pixi/core';
+import { Container } from '@pixi/display'
+import { Application } from '@pixi/app'
+import { Sprite } from '@pixi/sprite'
+import { TickerPlugin, Ticker } from '@pixi/ticker';
+
 import {
   images,
   BASE_CANVAS_WIDTH,
@@ -12,21 +17,28 @@ import {
   AnimationContainer
 } from './ImageData'
 
+Renderer.registerPlugin('batch', BatchRenderer)
+Application.registerPlugin(TickerPlugin);
+
 const drawImages = (divContainer: HTMLDivElement) => {
+  const ticker = new Ticker()
   const width = Math.floor(divContainer.clientWidth) - 1
   const scale = Math.min(width / BASE_CANVAS_WIDTH, 1.0)
   const speed = BASE_CANVAS_WIDTH * scale / 50
 
   // PIXIの準備
+  console.log(Application)
   const app = new Application({
     width: Math.min(width, BASE_CANVAS_WIDTH),
     height: BASE_CANVAS_HEIGHT * scale,
     transparent: true
   })
+  Application.registerPlugin(TickerPlugin);
+
   divContainer.appendChild(app.view)
-
+  
   const rootContainer = new Container()
-
+  
   const charactorContainers = setupCharactorContainer(images, scale)
   const [ryohaContainer, infinityContainer] = setupLogos(logoDatas, scale)
   addChildrenToContainer(rootContainer, [ryohaContainer, infinityContainer, ...charactorContainers].map(v => v.container))
@@ -34,7 +46,7 @@ const drawImages = (divContainer: HTMLDivElement) => {
   let isReachTop = charactorContainers.map(_ => false)
   let isAllAnimationFinished = charactorContainers.map(_ => false)
   // アニメーションの追加
-  app.ticker.add((d) => {
+  ticker.add((d) => {
     if (isAllAnimationFinished.reduce((acc, cur) => acc && cur)) {
       for (const chara of charactorContainers) {
         chara.filter.uniforms.time += 0.01 * d
@@ -72,6 +84,10 @@ const drawImages = (divContainer: HTMLDivElement) => {
     }
   })
   app.stage.addChild(rootContainer);
+  app.ticker = ticker
+
+  ticker.start()
+
   return app
 }
 
