@@ -5,6 +5,7 @@
 	import Charactors from './components/Charactors/Charactors.svelte'
 	import Gallery from './components/Gallery/Gallery.svelte'
 	import Spec from './components/Spec/Spec.svelte'
+	import FooterComponent from './components/Footer/Footer.svelte'
 
 	import scrollAnimation from './lib/scrollAnimation'
 	import { onMount } from 'svelte';
@@ -28,7 +29,7 @@
 		<Charactors />
 		<Gallery />
 		<Spec />
-		<div class="a" />
+		<FooterComponent />
 	</div>
 </main>
 
@@ -43,8 +44,5 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-	}
-	.a {
-		height: 300vh;
 	}
 </style>
