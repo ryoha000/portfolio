@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
 
-  export let imgURLs: string[]
+  export let thumbnails: string[]
   export let imgIndex: number
 
   let clientHeight: number
@@ -45,7 +45,7 @@
 </style>
 
 <div class="container">
-  {#each imgURLs as src, i}
+  {#each thumbnails as src, i}
     <div class="thumb" on:click="{() => select(i)}">
       <img {src} alt="{`${i}`}" />
     </div>

@@ -79,7 +79,7 @@
   on:click="{toggleOpenDialog}"
 >
   <div class="imgContainer">
-    <img src="{work.imgURLs[0]}" alt="{work.title}" />
+    <img src="{work.thumbnails[0]}" alt="{work.title}" />
   </div>
   <div class="wrapper">
     <div class="layer" style="{isHover ? `height: calc(100% - ${titleHeight}px)` : ''}"></div>

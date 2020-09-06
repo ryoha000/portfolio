@@ -84,7 +84,7 @@
     <h3 class="text">{work.subtitle}</h3>
     <GalleryDialogImage srcs="{work.imgURLs}" {imgIndex} on:move="{imageMove}" />
     <GalleryDialogThumbnails
-      imgURLs="{work.imgURLs}"
+      thumbnails="{work.thumbnails}"
       {imgIndex}
       on:select="{select}"
     />
