@@ -42,7 +42,7 @@ export const charactorDatas: CharactorData[] = [
       text: '兄さんはいっつもそうです、仕方ない人ですね。',
       color: [84, 84, 84, 1.0]
     },
-    voices: ['/assets/桜のあと(all quartets lead to the？).mp3'],
+    voices: [],
     cv: 'Text-to-Speech',
     detail: [
       '双子の姉として@ryoha000をもち、りょは家の家事を全て取り仕切っている。',
@@ -60,7 +60,7 @@ export const charactorDatas: CharactorData[] = [
       text: 'お兄ちゃんどうせ暇でしょ？明日は駅前で買い物だから。',
       color: [224, 224, 224, 1.0]
     },
-    voices: ['/assets/桜のあと(all quartets lead to the？).mp3'],
+    voices: [],
     cv: 'Text-to-Speech',
     detail: [
       '双子の妹である@ryohaの立派なお姉ちゃんであるよう心掛けているがよくミスをカバーされている。',
@@ -78,7 +78,7 @@ export const charactorDatas: CharactorData[] = [
       text: 'この宇宙船の燃料は愛だよ。君、私と愛で交信しよう。',
       color: [191, 87, 130, 1.0]
     },
-    voices: ['/assets/桜のあと(all quartets lead to the？).mp3'],
+    voices: [],
     cv: 'Text-to-Speech',
     detail: [
       'ケプラー452bからの旅行中、地球には燃料補給のため立ち寄った。',
@@ -97,7 +97,7 @@ export const charactorDatas: CharactorData[] = [
       text: '兄さんはいっつもそうです、仕方ない人ですね。',
       color: [255, 230, 140, 1.0]
     },
-    voices: ['/assets/桜のあと(all quartets lead to the？).mp3'],
+    voices: [],
     cv: 'Text-to-Speech',
     detail: [
       'りょは家長女で双子の妹である@ryohaの立派なお姉ちゃんであるよう心掛けているがよくミスをカバーされている。',
