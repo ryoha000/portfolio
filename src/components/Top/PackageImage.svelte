@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import DrawImages from './drawImages'
-  import type { Application } from 'pixi.js'
+  import type { Application } from '@pixi/app'
 
   let divContainer: HTMLDivElement
   let app: Application
