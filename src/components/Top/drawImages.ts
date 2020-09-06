@@ -1,4 +1,6 @@
 import { Texture, Filter, Renderer, BatchRenderer } from '@pixi/core';
+import { skipHello } from '@pixi/utils'
+import * as c from '@pixi/core';
 import { Container } from '@pixi/display'
 import { Application } from '@pixi/app'
 import { Sprite } from '@pixi/sprite'
@@ -17,6 +19,7 @@ import {
   AnimationContainer
 } from './ImageData'
 
+skipHello()
 Renderer.registerPlugin('batch', BatchRenderer)
 Application.registerPlugin(TickerPlugin);
 
@@ -27,14 +30,11 @@ const drawImages = (divContainer: HTMLDivElement) => {
   const speed = BASE_CANVAS_WIDTH * scale / 50
 
   // PIXIの準備
-  console.log(Application)
   const app = new Application({
     width: Math.min(width, BASE_CANVAS_WIDTH),
     height: BASE_CANVAS_HEIGHT * scale,
     transparent: true
   })
-  Application.registerPlugin(TickerPlugin);
-
   divContainer.appendChild(app.view)
   
   const rootContainer = new Container()
