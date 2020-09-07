@@ -1,8 +1,16 @@
-<script lang="ts">
-  import Icon from '../UI/Icon.svelte'
-  import { spring } from 'svelte/motion';
+<script context="module" lang="ts">
+	const audios = new Set<HTMLAudioElement>();
+</script>
 
-  export let src: string
+<script lang="ts">
+  import { spring } from 'svelte/motion';
+  import { onMount } from 'svelte';
+  import { speak } from '../../store/index';
+
+  export let voice: {
+    text: string
+    src: string
+  }
   let size = spring(32);
   let audio: HTMLAudioElement
   let isPaused = true
@@ -10,8 +18,10 @@
   const togglePlay = () => {
     if (isPaused) {
       play()
+      speak.set({ speaking: true, selif: voice.text })
     } else {
       pause()
+      speak.set({ speaking: false, selif: "" })
     }
   }
   const mouseOver = () => {
@@ -22,10 +32,17 @@
   }
   const play = () => {
     audio.play()
+    audios.forEach(ele => {
+			if (ele !== audio) ele.pause();
+		});
   }
   const pause = () => {
     audio.pause()
   }
+  onMount(() => {
+    audios.add(audio)
+    return () => audios.delete(audio);
+  })
   const style = () => {
     return `width: ${$size + 24}px; height: ${$size + 22}px;`
   }
@@ -54,7 +71,7 @@
 </style>
 
 <!-- svelte-ignore a11y-media-has-caption -->
-<audio src="{src}" bind:this="{audio}" bind:paused="{isPaused}" />
+<audio src="{voice.src}" bind:this="{audio}" bind:paused="{isPaused}" />
 
 <div class="container">
   <div
