@@ -9,6 +9,7 @@ export interface CharactorData {
     src: string
   }[];
   cv: string;
+  subColor: [number, number, number, number]
   detail: string[];
   url: string;
 }
@@ -47,6 +48,7 @@ export const charactorDatas: CharactorData[] = [
       text: "兄さんはいっつもそうです、仕方ない人ですね。",
       color: [84, 84, 84, 1.0],
     },
+    subColor: [224, 224, 224, 1.0],
     voices: [
       {
         text: '兄さんはいっつもそうです、仕方ない人ですね。',
@@ -78,6 +80,7 @@ export const charactorDatas: CharactorData[] = [
       text: "お兄ちゃんどうせ暇でしょ？明日は駅前で買い物だから。",
       color: [224, 224, 224, 1.0],
     },
+    subColor: [84, 84, 84, 1.0],
     voices: [
       {
         text: 'お兄ちゃんどうせ暇でしょ？明日は駅前で買い物だから。',
@@ -109,6 +112,7 @@ export const charactorDatas: CharactorData[] = [
       text: "この宇宙船の燃料は愛だよ。君、私と愛で交信しよう。",
       color: [191, 87, 130, 1.0],
     },
+    subColor: [69, 214, 232, 1.0],
     voices: [
       {
         text: 'この宇宙船の燃料は愛だよ。君、私と愛で交信しよう。',
@@ -141,6 +145,7 @@ export const charactorDatas: CharactorData[] = [
       text: "未来で地球は人類の手から失われた。",
       color: [255, 230, 140, 1.0],
     },
+    subColor: [189, 18, 36, 1.0],
     voices: [
       {
         text: '未来で地球は人類の手から失われた。私はそれを阻止するためにここにいる。',
