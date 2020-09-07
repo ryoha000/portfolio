@@ -75,7 +75,7 @@
   </div>
   <div class="voiceContainer">
     {#each data.voices as voice}
-      <CharactorVoice src="{voice}" />
+      <CharactorVoice src="{voice.src}" />
     {/each}
   </div>
   <div class="detail">
