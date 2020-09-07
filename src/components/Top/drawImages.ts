@@ -1,6 +1,5 @@
 import { Texture, Filter, Renderer, BatchRenderer } from '@pixi/core';
 import { skipHello } from '@pixi/utils'
-import * as c from '@pixi/core';
 import { Container } from '@pixi/display'
 import { Application } from '@pixi/app'
 import { Sprite } from '@pixi/sprite'
