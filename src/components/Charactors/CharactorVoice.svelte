@@ -18,12 +18,12 @@
 
   const togglePlay = () => {
     if (isPaused) {
-      play()
+      // play()
       if (!isMobile) {
         speak.set({ speaking: true, selif: voice.text })
       }
     } else {
-      pause()
+      // pause()
       speak.set({ speaking: false, selif: "" })
     }
   }
@@ -46,10 +46,10 @@
   const pause = () => {
     audio.pause()
   }
-  onMount(() => {
-    audios.add(audio)
-    return () => audios.delete(audio);
-  })
+  // onMount(() => {
+  //   audios.add(audio)
+  //   return () => audios.delete(audio);
+  // })
   const style = () => {
     return `width: ${$size + 24}px; height: ${$size + 22}px;`
   }
@@ -78,7 +78,7 @@
 </style>
 
 <!-- svelte-ignore a11y-media-has-caption -->
-<audio src="{voice.src}" bind:this="{audio}" bind:paused="{isPaused}" />
+<!-- <audio src="{voice.src}" bind:this="{audio}" bind:paused="{isPaused}" /> -->
 
 <div class="container">
   <div
@@ -88,7 +88,7 @@
     on:mouseout="{mouseLeave}"
     style="{`width: ${$size + 24}px; height: ${$size + 24}px; border-radius: ${($size + 24) / 2}px;`}"
   >
-    {#if isPaused}
+    {#if $speak.selif !== voice.text}
       <img src="/assets/love-letter-closed.svg" alt="play" loading="lazy" />
     {:else}
       <img src="/assets/love-letter.svg" alt="pause" loading="lazy" />
