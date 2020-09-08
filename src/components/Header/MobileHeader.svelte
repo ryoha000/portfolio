@@ -140,7 +140,7 @@
   <div class="menuContainer {isOpen ? 'open' : ''}" style="top: {height}px;">
     {#each anchors as anchor}
       <a on:click="{() => jump(getId(anchor))}" class="menuItem">
-        <Caption label={anchor} on:click="{() => console.log('aa')}" />
+        <Caption label={anchor} />
       </a>
     {/each}
   </div>
