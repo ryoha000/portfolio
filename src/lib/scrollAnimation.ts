@@ -1,13 +1,15 @@
 import ScrollReveal from 'scrollreveal'
 
 const scrollAnimation = () => {
-  const setup = () => {
+  const setup = (isMobile: boolean) => {
     setFadeIn()
     setFadeInDelay()
-    setFadeInUp()
-    setFadeInRightDelay1000()
+    if (isMobile) {
+      setFadeInRightWhileIsMobile()
+    } else {
+      setFadeInRightDelay()
+    }
     setVisibleInvisible()
-    setFadeInRightNotReset()
   }
   const setFadeIn = () => {
     ScrollReveal().reveal('.fadeIn', { 
@@ -24,15 +26,7 @@ const scrollAnimation = () => {
       });
     }
   }
-  const setFadeInUp = () => {
-    ScrollReveal().reveal('.fadeInUp', { 
-      duration: 2000,
-      origin: 'bottom',
-      distance: '50px',
-      reset: true
-    });
-  }
-  const setFadeInRightDelay1000 = () => {
+  const setFadeInRightDelay = () => {
     ScrollReveal().reveal('.fadeInRight', { 
       duration: 1600,
       origin: 'right',
@@ -40,12 +34,10 @@ const scrollAnimation = () => {
       reset: true,
     });
   }
-  const setFadeInRightNotReset = () => {
-    ScrollReveal().reveal('.fadeInRightNotReset', { 
-      duration: 1600,
-      origin: 'right',
-      distance: '50px',
-      reset: false,
+  const setFadeInRightWhileIsMobile = () => {
+    ScrollReveal().reveal('.fadeInRight', { 
+      duration: 2000,
+      reset: true
     });
   }
   const setVisibleInvisible = () => {
