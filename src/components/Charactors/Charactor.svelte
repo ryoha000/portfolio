@@ -32,7 +32,7 @@
   }
 </style>
 
-<div class="container fadeIn">
+<div class="container">
   <div class="leftTop edge"></div>
   <div class="rightBottom edge"></div>
   <CharactorVisual {data} />

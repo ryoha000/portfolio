@@ -19,9 +19,7 @@
   }
   .charaContainer {
     max-width: 1000px;
-  }
-  .mobileCharaContainer {
-    width: 100vw;
+    width: 100%;
   }
 </style>
 
@@ -35,24 +33,15 @@
   {/each}
 </div>
 
-{#if width > 744}
-  {#each charactorDatas as data, i }
-    <div id="charactor{i}">
-      <WhiteSpace />
-    </div>
-    <div class="charaContainer">
-      <Charactor {data} />
-    </div>
-  {/each}
-{:else}
-  {#each charactorDatas as data, i }
-    <div id="charactor{i}">
-      <WhiteSpace />
-      <WhiteSpace />
-      <WhiteSpace />
-    </div>
-    <div class="mobileCharaContainer">
+{#each charactorDatas as data, i }
+  <div id="charactor{i}">
+    <WhiteSpace />
+  </div>
+  <div class="fadeIn charaContainer">
+    {#if width < 744}
       <MobileCharacter {data} />
-    </div>
-  {/each}
-{/if}
+    {:else}
+      <Charactor {data} />
+    {/if}
+  </div>
+{/each}
