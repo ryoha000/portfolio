@@ -1,8 +1,10 @@
 <script lang="ts">
   import Caption from "./Caption.svelte";
   import { scrollto } from "svelte-scrollto";
+  import MobileHeader from './MobileHeader.svelte'
 
-  const anchors = ["Top", "Story", "Charactors", "Gallery", "Spec"];
+  let width: number
+  const anchors = ["Top", "Story", "Characters", "Gallery", "Spec"];
   const getId = (label: string) => {
     return label.toLowerCase();
   };
@@ -29,16 +31,22 @@
   }
 </style>
 
-<header class="header">
-  <!-- svelte-ignore a11y-missing-attribute -->
-  <div class="container">
-    <a class="logo" use:scrollto={`#top`}>
-      <img src="/assets/logo.webp" alt="logo" loading="eager" />
-    </a>
-    {#each anchors as anchor}
-      <a use:scrollto={`#${getId(anchor)}`}>
-        <Caption label={anchor} />
+<svelte:window bind:innerWidth="{width}" />
+
+{#if width > 600}
+  <header class="header">
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <div class="container">
+      <a class="logo" use:scrollto={`#top`}>
+        <img src="/assets/logo.webp" alt="logo" loading="eager" />
       </a>
-    {/each}
-  </div>
-</header>
+      {#each anchors as anchor}
+        <a use:scrollto={`#${getId(anchor)}`}>
+          <Caption label={anchor} />
+        </a>
+      {/each}
+    </div>
+  </header>
+{:else}
+  <MobileHeader />
+{/if}

@@ -1,0 +1,3 @@
+interface ScrollToOptions {
+  element: string
+}

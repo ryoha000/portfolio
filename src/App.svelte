@@ -36,7 +36,7 @@
 <style>
 	main {
 		font-family: "M PLUS Rounded 1c",sans-serif;
-		width: 100%;
+		width: 100vw;
 		height: 100%;
 	}
 	.container {
