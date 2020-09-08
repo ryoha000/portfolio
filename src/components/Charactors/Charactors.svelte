@@ -19,7 +19,7 @@
   }
 </style>
 
-<HeaderLabel label="Charactors" />
+<HeaderLabel label="Characters" />
 
 <div class="facesContainer">
   {#each charactorDatas as data, i }
