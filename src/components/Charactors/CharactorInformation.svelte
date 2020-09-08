@@ -4,6 +4,7 @@
   import { fly } from 'svelte/transition';
 
   export let data: CharactorData
+  export let isMobile: boolean = false
 </script>
 
 <style>
@@ -75,7 +76,7 @@
   </div>
   <div class="voiceContainer">
     {#each data.voices as voice}
-      <CharactorVoice {voice} />
+      <CharactorVoice {voice} {isMobile} />
     {/each}
   </div>
   <div class="detail">

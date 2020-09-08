@@ -11,6 +11,7 @@
     text: string
     src: string
   }
+  export let isMobile: boolean = false
   let size = spring(32);
   let audio: HTMLAudioElement
   let isPaused = true
@@ -18,17 +19,23 @@
   const togglePlay = () => {
     if (isPaused) {
       play()
-      speak.set({ speaking: true, selif: voice.text })
+      if (!isMobile) {
+        speak.set({ speaking: true, selif: voice.text })
+      }
     } else {
       pause()
       speak.set({ speaking: false, selif: "" })
     }
   }
   const mouseOver = () => {
-    size.set(40)
+    if (!isMobile) {
+      size.set(40)
+    }
   }
   const mouseLeave = () => {
-    size.set(32)
+    if (!isMobile) {
+      size.set(32)
+    }
   }
   const play = () => {
     audio.play()
