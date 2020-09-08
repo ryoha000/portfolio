@@ -138,7 +138,7 @@ export const charactorDatas: CharactorData[] = [
   },
   {
     account: "https://twitter.com/ryoha_0216",
-    name: "ryoha".split("").map((v) => ({ text: v, colored: v === "o" })),
+    name: "ryoha".split("").map((v) => ({ text: v, colored: false })),
     src: "/assets/shinku_back_white.webp",
     faceSrc: "/assets/shinku_face.webp",
     selif: {
@@ -168,5 +168,25 @@ export const charactorDatas: CharactorData[] = [
       "ものすごい恋愛脳で空回りすることが多い。",
     ],
     url: "https://www.makura-soft.com/sakuranouta/index.html",
+  },
+  {
+    account: "https://infinity.ryoha.moe/",
+    name: "りょは".split("").map((v) => ({ text: v, colored: false })),
+    src: "/assets/ryoha_back_white.webp",
+    faceSrc: "/assets/ryoha_back_white.webp",
+    selif: {
+      text: "空から女の子って...いつからここはゼロ年代になったんだ。",
+      color: [51, 51, 51, 1.0],
+    },
+    subColor: [189, 18, 36, 1.0],
+    voices: [],
+    cv: "？？？",
+    detail: [
+      "プログラミングとか恋愛ADVゲームが趣味の地球人。",
+      "本作の主人公で妄想力がたくましい。",
+      "あまり頭がよくなく中学生の妹によく大学の勉強を教えてもらっていて、本人は妹から呆れられていると思っている。",
+      "毎日幼馴染が欲しかったと人生を憂いている。",
+    ],
+    url: "https://infinity.ryoha.moe/",
   },
 ];

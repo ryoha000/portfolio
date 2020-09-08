@@ -10,6 +10,7 @@
   let text = ''
   let allText = ''
   let timer = 0
+  let height: number = 0
 
   const unsubscribe = speak.subscribe(s => {
     if (!s.speaking) {
@@ -18,6 +19,7 @@
       allText = ''
     }
 		if (s.speaking && allText !== s.selif) {
+      clearInterval(timer)
       text = ''
       allText = s.selif
       typing(s.selif)
@@ -77,7 +79,7 @@
     <div class="selif" transition:fade>
       {text}
     </div>
-  {:else}
+  {:else if data.name[0].text !== 'り'}
     <div class="hukidashi leftHukidashi">
       <Hukidashi label="ユーザー" url="{data.account}" />
     </div>
