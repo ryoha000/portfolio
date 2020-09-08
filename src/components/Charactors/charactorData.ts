@@ -134,7 +134,7 @@ export const charactorDatas: CharactorData[] = [
       "愛を得るためには手段を選ばず主人公とのスキンシップが激しい。",
       "いつもおいしい料理を作ってくれる@ryohaには頭が上がらない。",
     ],
-    url: "https://www.makura-soft.com/sakuranouta/index.html",
+    url: "https://glovety.product.co.jp/",
   },
   {
     account: "https://twitter.com/ryoha_0216",
