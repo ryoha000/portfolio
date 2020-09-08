@@ -73,7 +73,7 @@
   }
 </style>
 
-<div class="container">
+<div class="container charaImg">
   <CharactorImage {data} />
   {#if $speak.speaking && data.voices.some(v => v.text === $speak.selif)}
     <div
