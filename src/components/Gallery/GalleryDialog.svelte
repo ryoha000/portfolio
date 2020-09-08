@@ -53,6 +53,7 @@
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     z-index: 200;
+    overflow: hidden;
   }
   .dialogContainer {
     margin: auto;
