@@ -53,6 +53,7 @@
   }
 </style>
 
+<!-- svelte-ignore empty-block -->
 <div class="container fadeInRight">
   <h2 class="selif">
     <span class="selifFirst" style="color: rgba({data.selif.color.join(',')});">
@@ -71,14 +72,17 @@
       {/if}
     {/each}
   </h2>
-  <div class="voiceTitleContainer">
-    <div>Voice</div><div>cv: {data.cv}</div>
-  </div>
-  <div class="voiceContainer">
-    {#each data.voices as voice}
-      <CharactorVoice {voice} {isMobile} />
-    {/each}
-  </div>
+  {#if isMobile}
+  {:else}
+    <div class="voiceTitleContainer">
+      <div>Voice</div><div>cv: {data.cv}</div>
+    </div>
+    <div class="voiceContainer">
+      {#each data.voices as voice}
+        <CharactorVoice {voice} {isMobile} />
+      {/each}
+    </div>
+  {/if}
   <div class="detail">
     {#each data.detail as row}
       <p>{row}</p>
