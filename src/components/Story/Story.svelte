@@ -1,5 +1,7 @@
 <script lang="ts">
   import HeaderLabel from '../UI/HeaderLabel.svelte'
+
+  let width: number
 </script>
 
 <style>
@@ -11,31 +13,19 @@
     display: flex;
     flex-direction: column;
   }
+  .container.mobile {
+    font-size: 0.85rem;
+  }
   .strong {
     font-size: 2rem;
   }
-  .thirtyOne {
-    background-image: linear-gradient(-45deg, green 20%, red 20% 30%, green 30% 60%, red 60% 70%, green 70%);
-    color: transparent;
-    -webkit-background-clip: text;
-  }
-  .sister {
-    background-image: linear-gradient(-10deg, rgb(84, 84, 84) 50%, rgb(224, 224, 224) 50%);
-    color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-stroke: 1px rgb(84, 84, 84);
+  .mobile .strong {
+    font-size: 1rem;
   }
   .piropiro {
     background: linear-gradient(45deg, blue, green);
     color: transparent;
     -webkit-background-clip: text;
-  }
-  .red {
-    color: red;
-  }
-  .pink {
-    color: pink;
-    -webkit-text-stroke: 1px #ff3939;
   }
   .earth {
     color: turquoise;
@@ -67,20 +57,28 @@
     font-size: 2.5rem;
     align-self: center;
   }
+  .mobile .last {
+    font-size: 1.2rem;
+  }
   .last .strong {
     font-size: 4rem;
+  }
+  .mobile .last .strong {
+    font-size: 1.5rem;
   }
   p {
     margin: 32px 0;
   }
 </style>
 
+<svelte:window bind:innerWidth="{width}" />
+
 <HeaderLabel label="Story" />
 
-<div class="container">
-  <div class="fadeInRight">「わたしは<span class="thirtyOne strong">サーティーワン！</span>」</div>
-  <div class="fadeInRight">「兄さんと<span class="pink strong">同じ</span>ものがいいです。」</div>
-  <div class="fadeInRight">もう夜だからと<span class="sister strong">妹たち</span>を置いてコンビニにアイスを買いに向かっていた主人公りょは。</div>
+<div class="container {width < 560 ? 'mobile' : ''}">
+  <div class="fadeInRight">「わたしはハーゲンダッツ！」</div>
+  <div class="fadeInRight">「兄さん同じものがいいです。」</div>
+  <div class="fadeInRight">もう夜だからと妹たちを置いてコンビニにアイスを買いに向かっていた主人公りょは。</div>
   <div class="fadeInRight">そこに空から<span class="piropiro strong">謎の異音</span>が聞こえてくる。</div>
   <p></p>
   <div class="fadeInRight"><span class="piropiro strong">ピロピロピロピロピロピロ...</span></div>
@@ -92,7 +90,7 @@
   <div class="fadeInRight">「わたしは君たちが呼ぶ、えーっと、ケプラー452bからきた<span class="universe strong">宇宙人</span>だ。」</div>
   <div class="fadeInRight">「うっかり燃料を切らしてしまってね、補給させてくれないかい？」</div>
   <p></p>
-  <div class="fadeInRight">「あぁ、<span class="red strong">燃料</span>が何か言ってなかったね。」</div>
+  <div class="fadeInRight">「あぁ、燃料が何か言ってなかったね。」</div>
   <div class="fadeInRight">「この宇宙船の燃料は<span class="scarlet strong">愛</span>だよ。」</div>
   <div class="fadeIn last">「君、私と<span class="scarlet strong">愛</span>で<span class="comunication strong">交信</span>しよう。」</div>
 </div>
