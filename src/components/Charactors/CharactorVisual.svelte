@@ -76,8 +76,11 @@
 <div class="container">
   <CharactorImage {data} />
   {#if $speak.speaking && data.voices.some(v => v.text === $speak.selif)}
-    <div class="selif" transition:fade>
-      {text}
+    <div
+      class="selif"
+      transition:fade
+      style="{`height: ${height + 16}px`}">
+      <div bind:clientHeight="{height}">{text}</div>
     </div>
   {:else if data.name[0].text !== 'り'}
     <div class="hukidashi leftHukidashi">
