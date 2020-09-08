@@ -30,6 +30,11 @@
   ]
 </script>
 
+<style>
+  .container {
+    padding: 1rem;
+  }
+</style>
 <HeaderLabel label="Spec" />
 
 <div class="container">
