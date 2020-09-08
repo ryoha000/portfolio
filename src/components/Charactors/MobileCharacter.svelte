@@ -15,16 +15,18 @@
     const height = window.innerHeight
     if (width !== prevWidth || height !== prevHeight) {
       img.addEventListener('load', () => {
-        const imgRatio = img.naturalWidth / img.naturalHeight
-        const containerRatio = container.clientWidth / container.clientHeight
-        if (containerRatio > imgRatio) {
-          console.log('a')
-          img.style.width = `${container.clientHeight * imgRatio - 16 * imgRatio - 1}px`
-          img.style.height = `${container.clientHeight - 16}px`
-        } else {
-          console.log('b')
-          img.style.width = `${container.clientWidth - 16 * imgRatio}px`
-          img.style.height = `${container.clientWidth / imgRatio - 16}px`
+        if (img.naturalWidth && img.naturalHeight) {
+          const imgRatio = img.naturalWidth / img.naturalHeight
+          const containerRatio = container.clientWidth / container.clientHeight
+          if (containerRatio > imgRatio) {
+            console.log('a')
+            img.style.width = `${container.clientHeight * imgRatio - 16 * imgRatio - 1}px`
+            img.style.height = `${container.clientHeight - 16}px`
+          } else {
+            console.log('b')
+            img.style.width = `${container.clientWidth - 16 * imgRatio}px`
+            img.style.height = `${container.clientWidth / imgRatio - 16}px`
+          }
         }
       })
       img.src = data.src
@@ -83,7 +85,7 @@
 
 <svelte:window on:resize="{update}" />
 
-<div class="container" bind:this="{container}">
+<div class="container fadeIn" bind:this="{container}">
   <div class="leftTop edge"></div>
   <div class="rightBottom edge"></div>
   <div class="visualContainer">
