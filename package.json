@@ -17,7 +17,7 @@
     "rollup-plugin-svelte": "^6.0.1",
     "rollup-plugin-terser": "^7.0.0",
     "svelte": "^3.28.0",
-    "svelte-check": "^1.0.52",
+    "svelte-check": "^1.0.53",
     "svelte-preprocess": "^4.3.2",
     "svelte-scrollto": "^0.2.0",
     "tslib": "^2.0.0",
