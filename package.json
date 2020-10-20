@@ -32,6 +32,6 @@
     "@pixi/ticker": "5.3.3",
     "@pixi/utils": "^5.3.3",
     "scrollreveal": "^4.0.7",
-    "sirv-cli": "^1.0.7"
+    "sirv-cli": "^1.0.8"
   }
 }
