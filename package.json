@@ -29,7 +29,7 @@
     "@pixi/core": "5.3.3",
     "@pixi/display": "5.3.3",
     "@pixi/sprite": "5.3.3",
-    "@pixi/ticker": "5.3.3",
+    "@pixi/ticker": "5.3.7",
     "@pixi/utils": "^5.3.3",
     "scrollreveal": "^4.0.7",
     "sirv-cli": "^1.0.8"
