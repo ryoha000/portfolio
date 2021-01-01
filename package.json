@@ -26,7 +26,7 @@
   "dependencies": {
     "@mdi/js": "^5.8.55",
     "@pixi/app": "5.3.3",
-    "@pixi/core": "5.3.3",
+    "@pixi/core": "5.3.7",
     "@pixi/display": "5.3.3",
     "@pixi/sprite": "5.3.3",
     "@pixi/ticker": "5.3.3",
