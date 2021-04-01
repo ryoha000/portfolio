@@ -27,7 +27,7 @@
     "@mdi/js": "^5.8.55",
     "@pixi/app": "5.3.3",
     "@pixi/core": "5.3.3",
-    "@pixi/display": "5.3.3",
+    "@pixi/display": "6.0.1",
     "@pixi/sprite": "5.3.3",
     "@pixi/ticker": "5.3.3",
     "@pixi/utils": "^5.3.3",
