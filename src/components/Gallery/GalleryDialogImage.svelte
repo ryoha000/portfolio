@@ -1,11 +1,22 @@
 <script lang="ts">
   import Icon from '../UI/Icon.svelte'
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
 
   export let srcs: string[]
   export let imgIndex: number
+  let container: HTMLDivElement
+  let img: HTMLImageElement
   let clientWidth: number
   let clientHeight: number
+  onMount(() => {
+    img.addEventListener('load', setSize)
+  })
+  const setSize = () => {
+    if (container) {
+      clientWidth = container.clientWidth
+      clientHeight = container.clientHeight
+    }
+  }
   $: containerHeightStyle = `
     height: ${clientWidth / 2}px;
   `
@@ -69,11 +80,11 @@
   }
 </style>
 
-<div class="container" style="{containerHeightStyle}" bind:clientHeight bind:clientWidth>
+<div class="container" style="{containerHeightStyle}" bind:this={container} bind:clientHeight bind:clientWidth>
   <div class="imgContainer" style="{imgContainerStyle}">
     {#each srcs as src, i}
       <div class="imgWrapper" style="{imgWrapperStyle + positionStyle}">
-        <img {src} alt="{`${i}`}" loading="eager" />
+        <img bind:this={img} {src} alt="{`${i}`}" loading="eager" />
       </div>
     {/each}
   </div>
