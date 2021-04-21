@@ -16,7 +16,6 @@
     document.body.style.overflowY = 'hidden';
   }
   const close = () => {
-    console.log('close')
     isOpen = false
     document.body.style.overflowY = 'auto'
   }

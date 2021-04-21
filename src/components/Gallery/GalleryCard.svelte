@@ -1,5 +1,4 @@
 <script lang="ts">
-  import HeaderLabel from '../UI/HeaderLabel.svelte'
   import GalleryDialog from './GalleryDialog.svelte'
   import type { Work } from './Works'
 
@@ -16,7 +15,6 @@
     isHover = false
   }
   const toggleOpenDialog = () => {
-    console.log('toggle')
     isOpenDialog = !isOpenDialog
   }
 </script>
@@ -90,6 +88,16 @@
   </div>
 </div>
 
+<svelte:head>
+  {#if isOpenDialog}
+    <style>
+      body {
+        overflow-y: auto;
+        /* padding-right: 10px; */
+      }
+    </style>
+  {/if}
+</svelte:head>
 {#if isOpenDialog}
   <GalleryDialog {work} on:close="{toggleOpenDialog}" />
 {/if}

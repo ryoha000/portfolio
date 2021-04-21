@@ -19,11 +19,9 @@
           const imgRatio = img.naturalWidth / img.naturalHeight
           const containerRatio = container.clientWidth / container.clientHeight
           if (containerRatio > imgRatio) {
-            console.log('a')
             img.style.width = `${container.clientHeight * imgRatio - 16 * imgRatio - 1}px`
             img.style.height = `${container.clientHeight - 16}px`
           } else {
-            console.log('b')
             img.style.width = `${container.clientWidth - 16 * imgRatio}px`
             img.style.height = `${container.clientWidth / imgRatio - 16}px`
           }
