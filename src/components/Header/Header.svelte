@@ -14,7 +14,7 @@
   .container {
     position: fixed;
     z-index: 100;
-    width: 100%;
+    width: 100vw;
     display: flex;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.5);

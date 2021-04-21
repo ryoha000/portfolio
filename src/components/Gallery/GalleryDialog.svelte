@@ -9,11 +9,23 @@
 
   export let work: Work
 
+  const getScrollbarWidth = () => {
+    let element = document.createElement('div');
+    element.style.visibility = 'hidden';
+    element.style.overflow = 'scroll';
+    document.body.appendChild(element);
+    const scrollbarWidth = element.offsetWidth - element.clientWidth;
+    document.body.removeChild(element);
+
+    return scrollbarWidth;
+  }
   onMount(() => {
     document.body.style.overflowY = 'hidden';
+    document.body.style.paddingRight = `${getScrollbarWidth()}px`
   })
   onDestroy(() => {
     document.body.style.overflowY = 'auto';
+    document.body.style.paddingRight = '0'
   })
 
   const stopClick = (e: MouseEvent) => {
