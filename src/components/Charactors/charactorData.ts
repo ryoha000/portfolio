@@ -137,7 +137,7 @@ export const charactorDatas: CharactorData[] = [
     url: "https://glovety.product.co.jp/",
   },
   {
-    account: "https://twitter.com/ryoha_0216",
+    account: "https://twitter.com/ryoha000",
     name: "ryoha".split("").map((v) => ({ text: v, colored: false })),
     src: "/assets/shinku_back_white.webp",
     faceSrc: "/assets/shinku_face.webp",
@@ -167,7 +167,7 @@ export const charactorDatas: CharactorData[] = [
       "主人公家居候その2として家事見習いを始めているが、成果は見受けられない。",
       "ものすごい恋愛脳で空回りすることが多い。",
     ],
-    url: "https://www.makura-soft.com/sakuranouta/index.html",
+    url: "http://www.favo-soft.jp/soft/product/world/character.htm",
   },
   {
     account: "https://infinity.ryoha.moe/",

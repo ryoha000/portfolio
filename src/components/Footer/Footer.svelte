@@ -69,7 +69,7 @@
     <a href="https://github.com/ryoha000" target="_blank" rel="noopener noreferrer">
       <Icon name="github" size="{48}" />
     </a>
-    <a class="twitter" href="https://twitter.com/ryoha_0216" target="_blank" rel="noopener noreferrer">
+    <a class="twitter" href="https://twitter.com/ryoha000" target="_blank" rel="noopener noreferrer">
       <Icon name="twitter" size="{48}" />
     </a>
     <div class="gmail">

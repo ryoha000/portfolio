@@ -61,7 +61,7 @@ export const works: Work[] = [
       },
       {
         title: 'Tweet',
-        url: 'https://twitter.com/ryoha_0216/status/1269247713213706242?s=20'
+        url: 'https://twitter.com/ryoha000/status/1269247713213706242?s=20'
       },
       {
         title: 'クライアント(ソースコード)',
