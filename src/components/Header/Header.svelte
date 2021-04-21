@@ -6,8 +6,13 @@
   let width: number
   const anchors = ["Top", "Story", "Characters", "Gallery", "Spec"];
   const getId = (label: string) => {
-    return label.toLowerCase();
-  };
+    return label.toLowerCase()
+  }
+  const clickCaption = (label: string) => {
+    console.log('click')
+    const res = label.toLowerCase()
+    history.replaceState('', '', `#${res}`)
+  }
 </script>
 
 <style>
@@ -41,7 +46,7 @@
         <img src="/assets/logo.webp" alt="logo" loading="eager" />
       </a>
       {#each anchors as anchor}
-        <a use:scrollto={`#${getId(anchor)}`}>
+        <a use:scrollto={`#${getId(anchor)}`} on:click={() => clickCaption(anchor)}>
           <Caption label={anchor} />
         </a>
       {/each}
