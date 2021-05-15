@@ -32,7 +32,7 @@ const drawImages = (divContainer: HTMLDivElement) => {
   const app = new Application({
     width: Math.min(width, BASE_CANVAS_WIDTH),
     height: BASE_CANVAS_HEIGHT * scale,
-    transparent: true
+    backgroundAlpha: 0
   })
   divContainer.appendChild(app.view)
   app.stop()
@@ -83,10 +83,10 @@ const drawImages = (divContainer: HTMLDivElement) => {
       })
     }
   })
-  app.stage.addChild(rootContainer);
+  app.stage.addChild(rootContainer)
   app.ticker = ticker
 
-  ticker.start()
+  app.ticker.start()
   return app
 }
 
