@@ -9,7 +9,7 @@
 
   let text = ''
   let allText = ''
-  let timer = 0
+  let timer: NodeJS.Timeout | undefined
   let height: number = 0
 
   const unsubscribe = speak.subscribe(s => {
