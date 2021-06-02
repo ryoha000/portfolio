@@ -4,8 +4,6 @@
   export let thumbnails: string[]
   export let imgIndex: number
 
-  let clientHeight: number
-  let clientWidth: number
   const dispatch = createEventDispatcher();
   const select = (index: number) => {
     dispatch('select', {

@@ -25,6 +25,7 @@
   .piropiro {
     background: linear-gradient(45deg, blue, green);
     color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
   }
   .earth {
@@ -36,11 +37,13 @@
   .silver {
     background: linear-gradient(45deg, #333333, #e2e2e2 50%, #333333);
     color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
   }
   .light {
     background: linear-gradient(45deg, rgb(255, 208, 0), rgb(243, 228, 163) 50%, rgb(255, 208, 0));
     color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-stroke: 1px #ffbf34;
   }
@@ -50,6 +53,7 @@
   .comunication {
     background-image: repeating-radial-gradient(circle at center, #6fb8d9, #70b9da 1.25%, #73bcdd 2.5%, #78c0e1 3.75%, #7fc6e6 5%, #86cdec 6.25%, #8cd3f2 7.5%, #93d9f7 8.75%, #98ddfb 10%, #9be0fe 11.25%, #9ce1ff 12.5%, #9be0fe 13.75%, #98ddfb 15%, #93d9f7 16.25%, #8cd3f2 17.5%, #86cdec 18.75%, #7fc6e6 20%, #78c0e1 21.25%, #73bcdd 22.5%, #70b9da 23.75%, #6fb8d9 25%);
     color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
   }
   .last {
