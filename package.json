@@ -22,7 +22,7 @@
     "svelte-preprocess": "^4.7.3",
     "svelte-scrollto": "^0.2.0",
     "tslib": "^2.0.3",
-    "typescript": "^4.3.2"
+    "typescript": "^4.5.5"
   },
   "dependencies": {
     "@mdi/js": "^5.9.55",
