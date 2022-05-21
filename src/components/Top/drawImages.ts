@@ -10,7 +10,10 @@ import {
   BASE_CANVAS_WIDTH,
   BASE_CANVAS_HEIGHT,
   BASE_LOGO_Y,
-  logoDatas,
+  logoDatas
+} from './ImageData'
+
+import type {
   BasePIXIInformation,
   BaseImageInformation,
   RGBA,
@@ -36,9 +39,9 @@ const drawImages = (divContainer: HTMLDivElement) => {
   })
   divContainer.appendChild(app.view)
   app.stop()
-  
+
   const rootContainer = new Container()
-  
+
   const charactorContainers = setupCharactorContainer(images, scale)
   const [ryohaContainer, infinityContainer] = setupLogos(logoDatas, scale)
   addChildrenToContainer(rootContainer, [ryohaContainer, infinityContainer, ...charactorContainers].map(v => v.container))
