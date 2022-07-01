@@ -19,7 +19,7 @@
     "rollup-plugin-terser": "^7.0.0",
     "svelte": "^3.48.0",
     "svelte-check": "^2.7.1",
-    "svelte-preprocess": "^4.10.6",
+    "svelte-preprocess": "^4.10.7",
     "svelte-scrollto": "^0.2.0",
     "tslib": "^2.4.0",
     "typescript": "^4.7.2"
