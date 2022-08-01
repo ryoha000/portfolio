@@ -31,7 +31,7 @@
     "@pixi/display": "6.4.2",
     "@pixi/sprite": "6.0.4",
     "@pixi/ticker": "6.3.2",
-    "@pixi/utils": "^6.4.0",
+    "@pixi/utils": "^6.5.1",
     "scrollreveal": "^4.0.7",
     "sirv-cli": "^2.0.2"
   }
