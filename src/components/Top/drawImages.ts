@@ -1,97 +1,105 @@
-import { Texture, Filter, Renderer, BatchRenderer } from '@pixi/core';
-import { skipHello } from '@pixi/utils'
-import { Container } from '@pixi/display'
-import { Application } from '@pixi/app'
-import { Sprite } from '@pixi/sprite'
-import { TickerPlugin, Ticker } from '@pixi/ticker';
+import { Texture, Filter, Renderer, BatchRenderer, settings } from "@pixi/core";
+import { skipHello } from "@pixi/utils";
+import { Container } from "@pixi/display";
+import { Application } from "@pixi/app";
+import { Sprite } from "@pixi/sprite";
+import { TickerPlugin, Ticker } from "@pixi/ticker";
+import { extensions } from "@pixi/core";
 
 import {
   images,
   BASE_CANVAS_WIDTH,
   BASE_CANVAS_HEIGHT,
   BASE_LOGO_Y,
-  logoDatas
-} from './ImageData'
+  logoDatas,
+} from "./ImageData";
 
 import type {
   BasePIXIInformation,
   BaseImageInformation,
   RGBA,
   LogoInformation,
-  AnimationContainer
-} from './ImageData'
+  AnimationContainer,
+} from "./ImageData";
 
-skipHello()
-Renderer.registerPlugin('batch', BatchRenderer)
-Application.registerPlugin(TickerPlugin);
+settings.RENDER_OPTIONS.hello = false;
+
+extensions.add(TickerPlugin);
 
 const drawImages = (divContainer: HTMLDivElement) => {
-  const ticker = new Ticker()
-  const width = Math.floor(divContainer.clientWidth) - 1
-  const scale = Math.min(width / BASE_CANVAS_WIDTH, 1.0)
-  const speed = BASE_CANVAS_WIDTH * scale / 50
+  const ticker = new Ticker();
+  const width = Math.floor(divContainer.clientWidth) - 1;
+  const scale = Math.min(width / BASE_CANVAS_WIDTH, 1.0);
+  const speed = (BASE_CANVAS_WIDTH * scale) / 50;
 
   // PIXIの準備
   const app = new Application({
     width: Math.min(width, BASE_CANVAS_WIDTH),
     height: BASE_CANVAS_HEIGHT * scale,
-    backgroundAlpha: 0
-  })
-  divContainer.appendChild(app.view)
-  app.stop()
+    backgroundAlpha: 0,
+  });
+  divContainer.appendChild(app.view);
+  app.stop();
 
-  const rootContainer = new Container()
+  const rootContainer = new Container();
 
-  const charactorContainers = setupCharactorContainer(images, scale)
-  const [ryohaContainer, infinityContainer] = setupLogos(logoDatas, scale)
-  addChildrenToContainer(rootContainer, [ryohaContainer, infinityContainer, ...charactorContainers].map(v => v.container))
+  const charactorContainers = setupCharactorContainer(images, scale);
+  const [ryohaContainer, infinityContainer] = setupLogos(logoDatas, scale);
+  addChildrenToContainer(
+    rootContainer,
+    [ryohaContainer, infinityContainer, ...charactorContainers].map(
+      (v) => v.container
+    )
+  );
 
-  let isReachTop = charactorContainers.map(_ => false)
-  let isAllAnimationFinished = charactorContainers.map(_ => false)
+  let isReachTop = charactorContainers.map((_) => false);
+  let isAllAnimationFinished = charactorContainers.map((_) => false);
   // アニメーションの追加
   ticker.add((d) => {
     if (isAllAnimationFinished.reduce((acc, cur) => acc && cur)) {
       for (const chara of charactorContainers) {
-        chara.filter.uniforms.time += 0.01 * d
+        chara.filter.uniforms.time += 0.01 * d;
       }
-      return
+      return;
     }
     // まず「りょは」ロゴをスライドイン
     if (ryohaContainer.container.x > ryohaContainer.destination.x) {
-      ryohaContainer.container.x -= speed * 1.5
+      ryohaContainer.container.x -= speed * 1.5;
       // 「りょは」ロゴのアニメーションが終わってたら「インフィニティ」ロゴをスライドイン
-    } else if (infinityContainer.container.x > infinityContainer.destination.x) {
-      infinityContainer.container.x -= speed * 2
+    } else if (
+      infinityContainer.container.x > infinityContainer.destination.x
+    ) {
+      infinityContainer.container.x -= speed * 2;
       // ロゴのアニメーションが終了してたら各キャラクターをスライドイン
     } else {
       charactorContainers.forEach((chara, i) => {
         if (chara.container.y > chara.destination.y && !isReachTop[i]) {
-          chara.container.y -= speed
-          chara.container.alpha += 0.2
+          chara.container.y -= speed;
+          chara.container.alpha += 0.2;
         } else {
-          isReachTop[i] = true
+          isReachTop[i] = true;
           if (chara.container.y < chara.destination.y + 12) {
-            chara.container.y += speed / 4
-            chara.container.alpha = 1.0
+            chara.container.y += speed / 4;
+            chara.container.alpha = 1.0;
           } else {
             if (chara.filter) {
-              chara.container.filters = [chara.filter]
-              chara.filter.uniforms.time += 0.01 * d
-              ryohaContainer.container.zIndex = 10
-              infinityContainer.container.zIndex = 10
-              isAllAnimationFinished[i] = true
+              chara.container.filters = [chara.filter];
+              chara.filter.uniforms.time += 0.01 * d;
+              ryohaContainer.container.zIndex = 10;
+              infinityContainer.container.zIndex = 10;
+              isAllAnimationFinished[i] = true;
             }
           }
         }
-      })
+      });
     }
-  })
-  app.stage.addChild(rootContainer)
-  app.ticker = ticker
+  });
+  app.stage.addChild(rootContainer);
+  app.ticker = ticker;
 
-  app.ticker.start()
-  return app
-}
+  app.ticker.start();
+  return app;
+};
 
 const getFilter = (rgba: RGBA) => {
   const flag = `
@@ -126,121 +134,127 @@ const getFilter = (rgba: RGBA) => {
       fg = mix(fg, color, step(1.0, isColord));
       gl_FragColor = fg;
     }
-  `
+  `;
 
   const filter = new Filter(null, flag, {
-    time: 0.0
-  })
-  return filter
-}
+    time: 0.0,
+  });
+  return filter;
+};
 
 const getRGBAStr = (rgba: [number, number, number, number]) => {
-  let str = ''
-  rgba.forEach(v => {
+  let str = "";
+  rgba.forEach((v) => {
     if (Number.isInteger(v)) {
-      str += `${v}.0, `
+      str += `${v}.0, `;
     } else {
-      str += `${v}, `
+      str += `${v}, `;
     }
-  })
-  return str.slice(0, -2)
-}
+  });
+  return str.slice(0, -2);
+};
 
 const getSquareContainer = (imgInfo: BaseImageInformation, scale: number) => {
-  const img = new Image()
-  img.src = imgInfo.src
-  img.width = imgInfo.width * scale
-  img.height = imgInfo.height * scale
+  const img = new Image();
+  img.src = imgInfo.src;
+  img.width = imgInfo.width * scale;
+  img.height = imgInfo.height * scale;
 
-  const sprite = new Sprite(Texture.from(img))
-  sprite.anchor.set(0)
-  sprite.x = 0
-  sprite.y = 0
+  const sprite = new Sprite(Texture.from(img));
+  sprite.anchor.set(0);
+  sprite.x = 0;
+  sprite.y = 0;
 
-  const container = new Container()
+  const container = new Container();
 
-  container.addChild(sprite)
+  container.addChild(sprite);
 
-  return container
-}
+  return container;
+};
 
 const getImageContainer = (src: string) => {
-  const container = new Container()
-  const img = new Image()
-  img.src = src
-  const sprite = new Sprite(Texture.from(img))
-  sprite.anchor.set(0)
-  sprite.x = 0
-  sprite.y = 0
-  container.addChild(sprite)
-  return container
-}
+  const container = new Container();
+  const img = new Image();
+  img.src = src;
+  const sprite = new Sprite(Texture.from(img));
+  sprite.anchor.set(0);
+  sprite.x = 0;
+  sprite.y = 0;
+  container.addChild(sprite);
+  return container;
+};
 
 const setupCharactorContainer = (
   infos: BasePIXIInformation[],
-  scale: number,
+  scale: number
 ): AnimationContainer[] => {
-  const res: AnimationContainer[] = []
-  let i = 1
+  const res: AnimationContainer[] = [];
+  let i = 1;
   for (const info of infos) {
-    const filter = getFilter(info.position.flipColor)
-    const container = getSquareContainer(info.image, scale)
-    container.x = info.position.x * scale
-    container.y = (info.position.y + BASE_CANVAS_HEIGHT) * scale * 0.35
-    container.zIndex = i
-    i += 1
+    const filter = getFilter(info.position.flipColor);
+    const container = getSquareContainer(info.image, scale);
+    container.x = info.position.x * scale;
+    container.y = (info.position.y + BASE_CANVAS_HEIGHT) * scale * 0.35;
+    container.zIndex = i;
+    i += 1;
     res.push({
       destination: {
         x: info.position.x * scale,
-        y: info.position.y * scale
+        y: info.position.y * scale,
       },
       container: container,
-      filter: filter
-    })
-    container.alpha = 0
+      filter: filter,
+    });
+    container.alpha = 0;
   }
-  return res
-}
+  return res;
+};
 
 const setupLogos = (
-  datas: Map<'ryoha' | 'infinity', LogoInformation>,
-  scale: number,
+  datas: Map<"ryoha" | "infinity", LogoInformation>,
+  scale: number
 ): [AnimationContainer, AnimationContainer] => {
-  const ryohaLogo = datas.get('ryoha')
-  const ryohaContainer = getLogoContainer(ryohaLogo, scale)
+  const ryohaLogo = datas.get("ryoha");
+  const ryohaContainer = getLogoContainer(ryohaLogo, scale);
 
-  const infinityLogo = datas.get('infinity')
-  const infinityContainer = getLogoContainer(infinityLogo, scale)
+  const infinityLogo = datas.get("infinity");
+  const infinityContainer = getLogoContainer(infinityLogo, scale);
 
-  const speed = (BASE_CANVAS_WIDTH * scale - ryohaLogo.destinationX) / 50
-  return [{
-    container: ryohaContainer,
-    destination: {
-      x: ryohaLogo.destinationX * scale,
-      y: BASE_LOGO_Y * scale
-    }
-  }, {
-    container: infinityContainer,
-    destination: {
-      x: infinityLogo.destinationX * scale,
-      y: BASE_LOGO_Y * scale
-    }
-  }]
-}
+  const speed = (BASE_CANVAS_WIDTH * scale - ryohaLogo.destinationX) / 50;
+  return [
+    {
+      container: ryohaContainer,
+      destination: {
+        x: ryohaLogo.destinationX * scale,
+        y: BASE_LOGO_Y * scale,
+      },
+    },
+    {
+      container: infinityContainer,
+      destination: {
+        x: infinityLogo.destinationX * scale,
+        y: BASE_LOGO_Y * scale,
+      },
+    },
+  ];
+};
 
 const getLogoContainer = (info: LogoInformation, scale: number) => {
-  const container = getImageContainer(info.src)
-  container.x = BASE_CANVAS_WIDTH * scale
-  container.y = BASE_LOGO_Y * scale
-  container.scale.x = scale
-  container.scale.y = scale
-  return container
-}
+  const container = getImageContainer(info.src);
+  container.x = BASE_CANVAS_WIDTH * scale;
+  container.y = BASE_LOGO_Y * scale;
+  container.scale.x = scale;
+  container.scale.y = scale;
+  return container;
+};
 
-const addChildrenToContainer = (target: Container, childrenContainer: Container[]) => {
+const addChildrenToContainer = (
+  target: Container,
+  childrenContainer: Container[]
+) => {
   for (const child of childrenContainer) {
-    target.addChild(child)
+    target.addChild(child);
   }
-}
+};
 
-export default drawImages
+export default drawImages;
